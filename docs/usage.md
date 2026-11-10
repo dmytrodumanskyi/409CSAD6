@@ -18,9 +18,10 @@
    git checkout -b feature/lab1-ts
    ```
 2. Відкрити папку у VS Code → Copilot Chat → режим **Agent** → у списку агентів обрати **build-engineer**.
-3. Ввести у чат:
+3. Ввести у чат (у режимі agent host Copilot команди доступні як skills, оркестратор — `/lab-init`;
+   у класичному Copilot Chat — `/init`):
    ```
-   /init
+   /lab-init
    ```
 4. Погоджувати запуск терміналу, коли Copilot просить дозвіл (`npm install`, `npm run build`, `npm test`).
 5. Дочекатись таблиці `INIT COMPLETED`.

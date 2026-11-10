@@ -16,6 +16,15 @@ GitHub Copilot Chat у VS Code (режим Agent). Copilot використов�
 | Command | `.github/prompts/<name>.prompt.md` | prompt file, запуск як `/<name>` |
 | Orchestrator | `.github/prompts/init.prompt.md` | prompt file `/init` |
 | CI | `.github/workflows/ci.yml` | GitHub Actions |
+| Command (дубль) | `.github/skills/<command>/SKILL.md` | agent skill, запуск як `/<command>` |
+| Orchestrator (дубль) | `.github/skills/lab-init/SKILL.md` | agent skill `/lab-init` |
+
+### Чому commands продубльовано як skills
+Під час першого запуску з'ясувалося, що режим Copilot Chat у VS Code (agent host) показує
+лише skills і вбудовані команди, а prompt files ігнорує: `/create-project` та інші не з'являлися
+у списку. Тому кожну command додано також у форматі skill з тим самим вмістом. Оркестратор
+у цьому форматі названо `/lab-init`, бо `/init` — вбудована команда Copilot. Prompt files
+залишено для сумісності з класичним Copilot Chat.
 
 ## Взаємодія компонентів
 ```mermaid
