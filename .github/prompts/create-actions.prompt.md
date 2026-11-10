@@ -22,7 +22,7 @@ description: Створює GitHub Actions workflow .github/workflows/ci.yml з 
 `.github/workflows/ci.yml`
 
 ## Перевірка
-- matrix: `ubuntu-latest`, `windows-latest`, `macos-latest`;
+- matrix: `ubuntu-latest`, `windows-latest`, `macos-15-intel`;
 - тригери: `push` і `pull_request` для `develop` і `master`;
 - кроки збірки лише `./ci.sh` / `ci.bat`;
 - немає `secrets.*`, токенів і паролів.

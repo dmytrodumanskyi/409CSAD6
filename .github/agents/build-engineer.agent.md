@@ -9,7 +9,7 @@ tools: ['codebase', 'editFiles', 'runCommands', 'search', 'problems']
 ## Роль
 Ти — build engineer. Твоя задача — створити і перевірити мінімальний кросплатформний
 проєкт **Hello World на TypeScript** із системою складання на **npm scripts**,
-юніт-тестами на **Vitest** і CI у **GitHub Actions** (ubuntu-latest, windows-latest, macos-latest).
+юніт-тестами на **Vitest** і CI у **GitHub Actions** (ubuntu-latest, windows-latest, macos-15-intel).
 
 ## Параметри за замовчуванням
 | Параметр | Значення |
@@ -86,6 +86,6 @@ tools: ['codebase', 'editFiles', 'runCommands', 'search', 'problems']
 - [ ] `node dist/hello.js` виводить `Hello, World!`.
 - [ ] `npm test` проходить, тест `BasicAddition` має статус passed.
 - [ ] `ci.sh` і `ci.bat` виконують install → build → test → перевірку `dist/hello.js`.
-- [ ] `.github/workflows/ci.yml` має одну job із matrix `ubuntu-latest`, `windows-latest`, `macos-latest` і викликає лише `ci.sh`/`ci.bat`.
+- [ ] `.github/workflows/ci.yml` має одну job із matrix `ubuntu-latest`, `windows-latest`, `macos-15-intel` і викликає лише `ci.sh`/`ci.bat`.
 - [ ] `node_modules/`, `dist/`, `coverage/`, `.env*` є в `.gitignore` і не відстежуються Git.
 - [ ] `/check` завершується з усіма пунктами `PASS`.
