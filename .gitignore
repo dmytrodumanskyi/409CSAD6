@@ -10,3 +10,5 @@ coverage/
 Thumbs.db
 .vscode/*
 !.vscode/extensions.json
+*.docx
+.~lock.*#

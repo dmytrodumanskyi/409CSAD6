@@ -21,7 +21,9 @@ GitHub Actions для Windows, Linux і macOS.
 ├── skills/
 │   ├── project-scaffold/SKILL.md
 │   ├── build-and-test/SKILL.md
-│   └── github-actions/SKILL.md
+│   ├── github-actions/SKILL.md
+│   └── git-init, create-project, create-build,
+│       create-actions, check, lab-init/SKILL.md   # commands як skills
 └── prompts/                            # commands
     ├── git-init.prompt.md
     ├── create-project.prompt.md
@@ -37,7 +39,7 @@ docs/
 
 ## Швидкий старт
 1. VS Code → Copilot Chat → режим **Agent** → агент **build-engineer**.
-2. Ввести `/init`.
+2. Ввести `/lab-init` (або `/init` у класичному Copilot Chat).
 3. Перевірити: `./ci.sh` (Linux/macOS) або `ci.bat` (Windows).
 
 Детально — у [docs/usage.md](docs/usage.md), архітектура — у [docs/architecture.md](docs/architecture.md),

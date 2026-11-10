@@ -18,8 +18,8 @@ description: Перевіряє структуру агента і проєкт�
 |---|---|
 | A1 | `.github/agents/build-engineer.agent.md` існує і містить розділи «Роль», «Заборонені дії», «Критерії успішного завершення» |
 | A2 | Існують 3 skills: `project-scaffold`, `build-and-test`, `github-actions`; кожен має розділи «Вхідні дані», «Результат», «Перевірки», «Типова помилка» |
-| A3 | Існують 6 commands у `.github/prompts/`: `git-init`, `create-project`, `create-build`, `create-actions`, `check`, `init` |
-| A4 | `init.prompt.md` викликає команди в порядку git-init → create-project → create-build → create-actions → check |
+| A3 | Існують 6 commands у `.github/prompts/` (`git-init`, `create-project`, `create-build`, `create-actions`, `check`, `init`) і відповідні skills у `.github/skills/` (`git-init`, `create-project`, `create-build`, `create-actions`, `check`, `lab-init`) |
+| A4 | `init.prompt.md` і `lab-init/SKILL.md` викликають команди в порядку git-init → create-project → create-build → create-actions → check |
 
 ### B. Проєкт
 | # | Перевірка |
