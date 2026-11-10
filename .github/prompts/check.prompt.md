@@ -41,7 +41,7 @@ description: Перевіряє структуру агента і проєкт�
 | # | Перевірка |
 |---|---|
 | D1 | `.github/workflows/ci.yml` існує, YAML без синтаксичних помилок |
-| D2 | matrix містить `ubuntu-latest`, `windows-latest`, `macos-latest` |
+| D2 | matrix містить `ubuntu-latest`, `windows-latest`, `macos-15-intel` |
 | D3 | тригери `push` і `pull_request` на `develop`/`master` |
 | D4 | у workflow немає `npm run build` / `npm test` напряму — лише `ci.sh`/`ci.bat` |
 
