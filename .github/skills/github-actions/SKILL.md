@@ -1,6 +1,6 @@
 ---
 name: github-actions
-description: Створює .github/workflows/ci.yml з однією job та matrix ubuntu-latest / windows-latest / macos-latest, яка викликає лише ci.sh або ci.bat і зберігає зібраний dist/ як artifact. Застосовувати після build-and-test.
+description: Створює .github/workflows/ci.yml з однією job та matrix ubuntu-latest / windows-latest / macos-15-intel, яка викликає лише ci.sh або ci.bat і зберігає зібраний dist/ як artifact. Застосовувати після build-and-test.
 ---
 
 # Skill: github-actions
@@ -13,7 +13,7 @@ description: Створює .github/workflows/ci.yml з однією job та ma
 | Параметр | За замовчуванням |
 |---|---|
 | `branches` | `develop`, `master`, `main` |
-| `os` | `ubuntu-latest`, `windows-latest`, `macos-latest` |
+| `os` | `ubuntu-latest`, `windows-latest`, `macos-15-intel` |
 | `nodeVersion` | `20` |
 | Файли з попереднього кроку | `ci.sh`, `ci.bat`, `package.json` |
 
@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-15-intel]
 
     steps:
       - name: Checkout
@@ -77,6 +77,12 @@ jobs:
           if-no-files-found: error
 ```
 
+## Чому macos-15-intel, а не macos-latest
+Під час першого запуску job `macos-latest` (arm64) двічі скасовано GitHub з повідомленням
+«The job was not acquired by Runner of type hosted even after multiple attempts» через брак
+потужностей macOS arm64 runners. Intel-runner `macos-15-intel` має коротшу чергу; вимога
+методички (Windows, Linux, macOS) при цьому виконується.
+
 ## Ідемпотентність
 - `ci.yml` існує і містить усі три ОС та виклики `ci.sh`/`ci.bat` → `SKIP`.
 - Не створювати другий workflow-файл з тією ж метою.
@@ -85,7 +91,7 @@ jobs:
 | # | Перевірка | Команда | Очікування |
 |---|---|---|---|
 | 1 | YAML валідний | `node -e "…"` або `npx --yes yaml-lint .github/workflows/ci.yml`; якщо інструментів немає — візуальна перевірка відступів | без помилок |
-| 2 | Усі три ОС | `grep -E "ubuntu-latest\|windows-latest\|macos-latest"` | 3 збіги в matrix |
+| 2 | Усі три ОС | `grep -E "ubuntu-latest\|windows-latest\|macos-15-intel"` | 3 збіги в matrix |
 | 3 | Тригери | містить `push`, `pull_request`, `develop`, `master` | так |
 | 4 | Немає прямого складання | `grep -E "npm (run build\|test\|ci)" ci.yml` | порожньо |
 | 5 | Немає секретів | `grep -i "secrets\.\|token\|password" ci.yml` | порожньо |
@@ -95,7 +101,7 @@ jobs:
 **Очікуваний вивід:**
 ```
 PASS create .github/workflows/ci.yml
-PASS matrix: ubuntu-latest, windows-latest, macos-latest
+PASS matrix: ubuntu-latest, windows-latest, macos-15-intel
 PASS no direct build commands, no secrets
 github-actions: PASS (5/5 checks)
 ```
