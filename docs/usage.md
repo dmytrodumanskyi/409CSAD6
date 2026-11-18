@@ -46,6 +46,23 @@ npm start        # Hello, World!
 npm test         # ✓ BasicAddition
 ```
 
+## Фактично виконані команди
+
+Під час запуску оркестратора були виконані:
+
+```text
+git --version
+node --version
+npm.cmd --version
+git rev-parse --is-inside-work-tree
+npm.cmd install
+npm.cmd ci
+npm.cmd run build
+node dist\hello.js
+npm.cmd test
+ci.bat
+```
+
 ## Демонстрація зламаної перевірки
 1. У `src/math.ts` замінити `return a + b;` на `return a - b;`.
 2. Запустити `/check` → пункт **C4** отримає `FAIL`, підсумок `CHECK FAILED`.

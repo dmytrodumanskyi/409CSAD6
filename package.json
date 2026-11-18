@@ -1,0 +1,26 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-platform TypeScript Hello World (lab 1, variant 6)",
+  "type": "module",
+  "bin": {
+    "hello": "dist/hello.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/hello.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "ci": "npm run clean && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
