@@ -1,0 +1,16 @@
+[dumpfile] "tb_spi.vcd"
+[timestart] 0
+@28
+tb_spi.clk
+tb_spi.rst
+tb_spi.start
+tb_spi.cs_n
+tb_spi.sclk
+tb_spi.mosi
+tb_spi.miso
+tb_spi.done
+@22
+tb_spi.m_tx[7:0]
+tb_spi.s_got[7:0]
+tb_spi.s_tx[7:0]
+tb_spi.m_rx[7:0]
